@@ -1,11 +1,13 @@
 const express = require('express');
 const app = express();
-const port = 5000;
+const cors = require('cors');
+const port = 8000;
 
 app.use(express.json());
+app.use(cors());
 
-const usersRoute = require('./routes/users');
-app.use('/api/users', usersRoute);
+const usersRoute = require('./routes/slider');
+app.use('/api/slider', usersRoute);
 
 app.get('/', (req, res) => {
   res.send('Hello, World!');
